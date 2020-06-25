@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:provider/provider.dart';
 
-import '../constans.dart';
+import '../../constans.dart';
 import 'login_screen.dart';
 
 
@@ -31,6 +31,12 @@ class SignUpScreen extends StatelessWidget {
       backgroundColor: KMainColor,
       body: ModalProgressHUD(
         inAsyncCall:Provider.of<ModeHud>(context).isLoading ,
+        color: KMainColor,
+        progressIndicator:CircularProgressIndicator(
+
+          valueColor:AlwaysStoppedAnimation<Color>(Colors.white) ,
+
+        ) ,
         child: Form(
           key: _globalKey,
           child: ListView(

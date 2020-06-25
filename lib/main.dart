@@ -1,23 +1,22 @@
-import 'package:ecommerceapp/Provider/model_hud.dart';
-import 'package:ecommerceapp/Screens/signup_screen.dart';
+
+import 'package:ecommerceapp/Provider/provider_lists.dart';
+import 'package:ecommerceapp/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'Screens/login_screen.dart';
+import 'Screens/user/login_screen.dart';
 
 main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ModeHud>(
-      create: (context)=>ModeHud(),
+    return MultiProvider(
+      providers: mainProviderList(context),
       child: MaterialApp(
-        initialRoute: LogInScreen.id,
-        routes: {
-          LogInScreen.id: (context) => LogInScreen(),
-          SignUpScreen.id: (context) => SignUpScreen(),
-        },
-      ),
+          initialRoute: LogInScreen.id,
+          routes: route(),
+        ),
     );
+
   }
 }
