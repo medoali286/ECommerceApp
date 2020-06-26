@@ -1,26 +1,22 @@
 import 'package:ecommerceapp/CustomWidgets/custom_text_field.dart';
 import 'package:ecommerceapp/Provider/admin_mode.dart';
 import 'package:ecommerceapp/Provider/model_hud.dart';
-import 'package:ecommerceapp/Provider/model_hud.dart';
-import 'package:ecommerceapp/Provider/model_hud.dart';
 import 'package:ecommerceapp/Screens/user/home_page.dart';
 import 'package:ecommerceapp/Screens/user/signup_screen.dart';
 import 'package:ecommerceapp/Services/auth.dart';
 import 'package:ecommerceapp/Tools/Tools.dart';
 import 'package:ecommerceapp/Tools/text.dart';
 import 'package:ecommerceapp/constans.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:provider/provider.dart';
-import 'package:ecommerceapp/Provider/model_hud.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import '../admin/admin_page.dart';
 
+// ignore: must_be_immutable
 class LogInScreen extends StatelessWidget {
+
   static String id = 'LogInScreen';
   final GlobalKey<FormState> _globalKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -53,7 +49,9 @@ class LogInScreen extends StatelessWidget {
                   child: Stack(
                     alignment: Alignment.center,
                     children: <Widget>[
-                      Image.asset("material/images/icons/buy.png"),
+
+                  Image.asset("material/images/icons/buy.png"),
+
                       Positioned(
                         bottom: 0,
                         child: Text(
