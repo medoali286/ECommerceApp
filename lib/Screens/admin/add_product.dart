@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/CustomWidgets/custom_text_field.dart';
 import 'package:ecommerceapp/Services/store.dart';
+import 'package:ecommerceapp/Tools/Tools.dart';
 import 'package:ecommerceapp/constans.dart';
 import 'package:ecommerceapp/models/product.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +18,12 @@ class AddProduct extends StatelessWidget {
   String _imageLocation;
   final GlobalKey<FormState>_globalKeyForm=GlobalKey<FormState>();
   final Store _store=Store();
-
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
   return Scaffold(
+    key: _scaffoldKey,
     backgroundColor: KMainColor,
 body: Form(
   key: _globalKeyForm,
@@ -83,16 +85,37 @@ body: Form(
 
       RaisedButton(
         child: Text('Add Product'),
-          onPressed:(){
+          onPressed:()async{
 
           if(_globalKeyForm.currentState.validate()){
 
             _globalKeyForm.currentState.save();
 
 
-           var _product=  Product(_price, _name, _description, _category, _imageLocation);
 
-           _store.addProduct(_product);
+
+
+
+
+
+
+
+           var _product=  Product(
+
+             pPrice: _price,
+             pName: _name,
+             pDescription: _description,
+             pCategory: _category,
+             imageLocation: _imageLocation
+           );
+try {
+  await _store.addProduct(_product);
+  _scaffoldKey.currentState.showSnackBar(Tools.snackBar('success'));
+
+}  catch (e){
+  _scaffoldKey.currentState.showSnackBar(Tools.snackBar(e.message));
+
+            }
 
           }
 

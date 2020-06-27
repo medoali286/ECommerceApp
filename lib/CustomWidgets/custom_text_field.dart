@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
   final IconData icon;
   final String hint;
   final Function onClick;
+ final TextEditingController controller;
 
   String _errorMessage(String hint){
     switch(hint){
@@ -31,7 +32,7 @@ class CustomTextField extends StatelessWidget {
 
 
 
-  CustomTextField({@required this.onClick,@required this.hint,@required this.icon});
+  CustomTextField({@required this.onClick,@required this.hint,@required this.icon,this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +82,8 @@ class CustomTextField extends StatelessWidget {
         ),
 
 onSaved: onClick,
+        controller:controller ,
+
 
       ),
     );

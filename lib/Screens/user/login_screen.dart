@@ -199,14 +199,26 @@ if(adminPassword==password){
 
 
 }else{
-try {
- await _auth.signIn(email: email, password: password);
-  Navigator.pushNamed(context, HomePage.id);
-}on PlatformException catch (e){
-  modelHud.changeIsLoading(false);
-  _scaffoldKey.currentState.showSnackBar(Tools.snackBar(e.message.toString()));
+  if(password!=adminPassword){
 
-}
+
+    try {
+
+      await _auth.signIn(email: email, password: password);
+      Navigator.pushNamed(context, HomePage.id);
+    }on PlatformException catch (e){
+      modelHud.changeIsLoading(false);
+      _scaffoldKey.currentState.showSnackBar(Tools.snackBar(e.message.toString()));
+
+    }
+
+
+  }else{
+    _scaffoldKey.currentState.showSnackBar(Tools.snackBar('You are not admin'));
+  }
+
+
+
 }
 
 

@@ -1,6 +1,6 @@
 import 'package:ecommerceapp/Screens/admin/add_product.dart';
 import 'package:ecommerceapp/Screens/admin/delete_product.dart';
-import 'package:ecommerceapp/Screens/admin/edit_product.dart';
+import 'package:ecommerceapp/Screens/admin/manage_product.dart';
 import 'package:ecommerceapp/Tools/text.dart';
 import 'package:ecommerceapp/constans.dart';
 import 'package:flutter/cupertino.dart';
@@ -43,7 +43,7 @@ class AdminPage extends StatelessWidget {
               onPressed: (){
 
 
-                Navigator.pushNamed(context, EditProduct.id);
+                Navigator.pushNamed(context, ManageProduct.id);
 
               }
           ),
